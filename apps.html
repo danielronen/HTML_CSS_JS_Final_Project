@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainStyle.css">
+    <title>יישומים</title>
+    <style>
+        img {
+            max-width: 200px;
+            max-height: 150px;
+        }
+
+        .rowT,
+        .rowT>.columnT {
+            padding: 7px;
+            direction: rtl;
+            display: inline-block;
+        }
+
+        .columnT {
+            float: right;
+            width: 45%;
+            margin: auto;
+        }
+
+        .row {
+            margin: auto;
+
+        }
+
+        .row,
+        .row .column {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .column {
+            float: right;
+            width: 50%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        h4 {
+            color: rgb(169, 169, 197);
+            text-shadow: 0px 0px 50px 12px rgb(14, 103, 163);
+            font-size: 20px;
+        }
+
+        hr {
+            width: 60%;
+            margin-top: -15px;
+            margin-bottom: 40px;
+
+        }
+
+        .column div {
+            display: none;
+        }
+
+        .column:hover div {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        img {
+            margin: auto;
+            align-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a class="myButton2" href="index.html" style="position: fixed; margin-top: 600px; right: 45%; ">דף הבית</a>
+    <h1 style="margin-top: 50px;">עבודות ומשחקים</h1>
+    <div class="main">
+        <hr>
+        <div class="row">
+            <div class="column" onclick="showDivi()">
+                <h4>משחקים</h4>
+                <hr>
+                <div id="divi">
+                    <a href="animation2.html" class="myButton1">סופר מריו</a><br>
+                    <a href="animation2.html"><img src="superMario.png" alt="superMario"></a>
+                    <br>
+                    <a href="./game/index.html" class="myButton1" style="margin-top: 4px;">פלאפי בירד</a><br>
+                    <a href="./game/index.html"><img src="flappyBird.png" alt="flappyBird"></a>
+                </div>
+            </div>
+            <div class="column" onclick="showDivi2()">
+                <h4>פרוייקטים</h4>
+                <hr>
+                <div id="divi2">
+                    <a href="smartCalc.html" class="myButton">המחשבון</a>
+                    <a href="quotes.html" class="myButton">ציטוטים</a>
+                    <div class="row" style="margin-top: 6px;">
+                        <a href="lottery.html" class="myButton">הגרלה</a>
+                        <a href="students.html" class="myButton">סטודנטים?</a>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <a href="./lesson04/index.html" class="myButton">תרגול 4</a>
+                        <a href="lesson05.html" class="myButton">תרגול 5</a>
+                        <a href="tip.html" class="myButton">מחשבון טיפים</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showDivi() {
+            document.getElementById("divi2").style.display = "none"
+            document.getElementById("divi").style.display = "inline-block"
+        }
+        function showDivi2() {
+            document.getElementById("divi").style.display = "none"
+            document.getElementById("divi2").style.display = "inline-block"
+        }
+    </script>
+</body>
+
+</html>

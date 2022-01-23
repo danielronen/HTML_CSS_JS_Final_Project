@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> מטלה להגשה</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(182, 182, 216);
+        }
+
+        #div1 {
+            position: relative;
+            display: inline-block;
+        }
+
+        #div2 {
+            position: relative;
+            margin: auto;
+            text-align: center;
+        }
+
+        #num4 {
+            color: blue;
+            font-size: 25px;
+        }
+
+        #num5 {
+            color: chartreuse;
+            font-size: 28px;
+        }
+
+        #game {
+            width: 40%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: auto;
+        }
+
+        .main1 {
+            margin: auto;
+        }
+
+        h3 {
+            color: bisque;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-shadow: rgb(36, 33, 39) 2px 2px 5px;
+        }
+
+        #myScore {
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            text-align: right;
+            position: absolute;
+            left: 20px;
+            top: 0px;
+
+        }
+        #myGuess {
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            text-align: right;
+            position: absolute;
+            right: 20px;
+            top: 0px;
+
+        }
+        #block {
+            display: block;
+        }
+
+        .myButton {
+            box-shadow: -2px 7px 27px -7px #276873;
+            background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+            background-color: #599bb3;
+            border-radius: 42px;
+            border: 1px solid #29668f;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 15px;
+            text-decoration: none;
+            text-shadow: 0px 0px 0px #3d768a;
+            -webkit-box-shadow: #59a1ff 0px 0px 40px 0px;
+            -moz-box-shadow: #59a1ff 0px 0px 40px 0px;
+            box-shadow: #59a1ff 0px 0px 40px 0px;
+            margin: 5px;
+        }
+    
+        .myButton:hover {
+            background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+            background-color: #408c99;
+        }
+    
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+        .myButton_2 {
+            box-shadow:inset 0px 1px 0px 0px #fff6af;
+            background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            background-color:#ffec64;
+            border-radius:6px;
+            border:1px solid #ffaa22;
+            display:inline-block;
+            cursor:pointer;
+            color:#333333;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ffee66;
+        }
+        .myButton_2:hover {
+            background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+            background-color:#ffab23;
+        }
+        .myButton_2:active {
+            position:relative;
+            top:1px;
+        }
+
+        #download {
+            position: relative;
+            margin-top: 150px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="request" style="display: none;"></p>
+    <div id="block">
+        <div id="div2"></div>
+        <div id="myScore" style="display: none;">Tries  </div>
+        <div id="myGuess" style="display: none;">My Guess  </div>
+    </div>
+    <div id="div1" >
+        <h3 id="demo"></h3>
+    </div>
+
+    <div id="main" class="main1" style="display: none;">
+        <button onclick="Random1()" class="myButton">הגרלת מספר</button>
+        <button onclick="number4()" class="myButton">מספרים עוקבים</button>
+        <button onclick="number5()" class="myButton">סדרת חזקות</button>
+        <button onclick="Hello()" class="myButton">קלוט קטע</button>
+
+        <p id="game"></p>
+        <p id="num4"></p>
+        <p id="num5"></p>
+
+    </div>
+    
+    <a href="apps.html" class="myButton">חזרה לאתר</a>
+    <br>
+    <div id="download">        
+        <a class="myButton_2" href="Downloads/‏‏‏‏HTML + CSS Project - עותק.7z" download>הורדת הקבצים</a>
+    </div>
+    <script>
+
+        var ans = confirm("האם אתם סטודנטים?");
+        document.getElementById("request").innerHTML = ans;
+        var width = window.innerWidth;
+        console.log(width);
+        if(width < 600)
+            document.getElementById("div2").style.marginTop = "12%";
+        if (ans) {
+            document.getElementById("div2").innerHTML = "ברוכים הבאים לסטודנטים";
+            document.getElementById("div2").style.fontSize = "36px";
+            document.getElementById("div2").style.marginBottom = "36px";
+            document.getElementById("div2").style.color = "green";
+            document.getElementById("main").style.display = "inline";
+
+        }
+        else {
+            document.getElementById("div2").innerText = "מתנצלים, האתר מיועד רק לסטודנטים";
+            document.getElementById("div2").style.fontSize = "40px";
+            document.getElementById("div2").style.color = "red";
+        }
+
+        function Hello() {
+            let n = prompt("בחר מספר אקראי");
+            document.getElementById("demo").innerHTML = "";
+            for (let i = 0; i < n; i++) {
+                document.getElementById("demo").innerHTML += "(" + (i + 1) + ") ברוכים הבאים ";
+            }
+            for (let j = 0; j < n; j++) {
+                console.log(j + 1);
+            }
+            if(n == 13)
+                document.getElementById("download").style.display = "inline";
+            else
+                document.getElementById("download").style.display = "none";
+
+        }
+
+        function number4() {
+            let num = prompt("בחר מספר: ");
+            document.getElementById("num4").innerHTML = "המספר שבחרת הוא:  " + num + " והמספרים לפניו הם: ";
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById("num4").innerHTML += num - i + ", ";
+
+            }
+        }
+        function number5() {
+            let num = prompt("בחר מספר: ");
+            let size = num;
+            let sum = 0;
+            document.getElementById("num5").innerHTML = "המספר שבחרת הוא:  " + num + " וסדרת החזקות היא: ";
+            for (let i = 1; i <= size; i++) {
+                sum = num * size;
+                document.getElementById("num5").innerHTML += sum + ", ";
+                console.log("i: " + i + " sum: " + sum)
+                num = sum;
+
+            }
+        }
+
+
+        async function Random1() {
+            document.getElementById("myScore").style.display = "inline";
+            document.getElementById("myGuess").style.display = "inline";
+            var num = prompt("נחש מספר בין 0-9");
+            var randomNum = Math.floor(Math.random() * 9);
+            var cnt = 0;
+            var Tries = 1;
+            document.getElementById("myScore").innerText = `Tries :  ${Tries++}`;
+            document.getElementById("myGuess").innerText = "My Guess: " + num;
+            while (num != randomNum && cnt != 9) {
+                document.getElementById("game").innerHTML = num + " הוא לא המספר הנכון, נסה מספר אחר<br> נותרו לך עוד " + (9 - cnt) + " ניסיונות ";
+                document.getElementById("game").style.color = "black";
+                document.getElementById("game").style.backgroundColor = "red";
+                document.getElementById("game").style.fontSize = "25px";
+                console.log("random number: " + randomNum);
+                num = await AsyncCall();
+                cnt++
+                document.getElementById("myScore").innerText = `Tries :  ${Tries++}`;
+                document.getElementById("myGuess").innerText = "My Guess: " + num;
+            }
+            if (cnt == 9 && num != randomNum) {
+                document.getElementById("game").innerHTML = "<b> טעית  חבר נסה בניסיון אחר :( </b>";
+                document.getElementById("game").style.color = "red";
+                document.getElementById("game").style.backgroundColor = "black";
+                document.getElementById("game").style.fontSize = "32px";
+                document.getElementById("myScore").innerText = `Tries :  ${--Tries}`;
+                document.getElementById("myGuess").innerText = "My Guess: " + num;
+            }
+            if (num == randomNum) {
+                document.getElementById("game").innerHTML = num + " ניחוש מצויין ! בניסיון הראשון  ";
+                document.getElementById("game").style.color = "green";
+                document.getElementById("game").style.backgroundColor = "gold";
+                document.getElementById("game").style.fontSize = "36px";
+                document.getElementById("myScore").innerText = `Tries :  ${--Tries}`;
+                document.getElementById("myGuess").innerText = "My Guess: " + num;
+            }
+            if (num == randomNum && cnt != 0) {
+                document.getElementById("game").innerHTML = " הצלחת ! המספר הוא: " + num + " בניסיון ה " + (cnt + 1) + " שלך ";
+                document.getElementById("game").style.color = "green";
+                document.getElementById("game").style.backgroundColor = "gold";
+                document.getElementById("game").style.fontSize = "34px";
+                document.getElementById("myScore").innerText = `Tries :  ${Tries}`;
+                document.getElementById("myGuess").innerText = "My Guess: " + num;
+            }
+
+        }
+
+        function AsyncCall() {
+            return new Promise(res => { setTimeout(function () { res(prompt(" נסה מספר אחר בין 0-9")); },); });
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

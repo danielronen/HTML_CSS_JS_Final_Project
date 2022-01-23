@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בוחן אמצע סמסטר</title>
+
+    <style>
+        body {
+            background-color: rgb(54, 131, 123);
+        }
+
+        * {
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            text-shadow: whitesmoke 1px 1px 3px;
+        }
+
+        #header {
+            color: whitesmoke;
+        }
+
+        #header:hover {
+            color: red;
+        }
+
+        #quest_4:hover {
+            background-color: purple;
+            width: 50px;
+        }
+
+        #ClockBox {
+            width: 100px;
+            height: 70px;
+            position: absolute;
+            right: 40px;
+            top: -5px
+        }
+
+        #Clock {
+            font-size: 25px;
+            font: bold;
+            color: royalblue;
+            background-color: slategray;
+            border-style: groove;
+            text-shadow: thistle 1px 1px 3px;
+
+        }
+
+        button {
+            background-color: rgb(117, 224, 224);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 7px;
+            color: rgb(78, 75, 75);
+        }
+
+        button:hover {
+            background-color: rgb(89, 153, 153);
+        }
+
+        .box {
+            margin: auto;
+            max-width: 50px;
+            max-height: 30px;
+            position: relative;
+        }
+
+        .main {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+        }
+
+        .myButton {
+            box-shadow: -2px 7px 27px -7px #276873;
+            background: linear-gradient(to bottom, #189ccc 5%, #29545c 100%);
+            background-color: #599bb3;
+            border-radius: 42px;
+            border: 1px solid #29668f;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 15px;
+            text-decoration: none;
+            text-shadow: 0px 0px 0px #3d768a;
+            -webkit-box-shadow: #59a1ff 0px 0px 40px 0px;
+            -moz-box-shadow: #59a1ff 0px 0px 40px 0px;
+            box-shadow: #59a1ff 0px 0px 40px 0px;
+        }
+    
+        .myButton:hover {
+            background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+            background-color: #408c99;
+        }
+    
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+</head>
+
+<body onresize="resize()" onload="loading()">
+
+    <div id="ClockBox">
+        <p id="Clock"></p>
+    </div>
+
+    <div class="main">
+        <h1 id="header">ברוכים הבאים למחשבון החכם - לא לעבור על הכותרת</h1>
+
+
+        <br><br>
+        <div class="box">
+            <p id="quest_4"></p>
+        </div>
+        <br><br>
+        <button onclick="randomNum()">מספר אקראי</button>
+        <button onclick="increase()">העלאה ב-1</button>
+        <button onclick="decrease()">הורדה ב-1</button>
+        <button onclick="reset()">איפוס</button>
+        <button onclick="checkEven()">בדיקה</button>
+        <button onclick="printPower()">הדפסת חזקות</button>
+
+
+        <p id="quest_5"></p>
+        <button onclick="getNumber()">בחר מספר</button>
+        <p id="5"></p>
+
+        <button onclick="deleteNumFromArr()">מחק מספר</button>
+        <br><br>
+        <button onclick="setTimeout(reminder, 10000)"> תזכורת בעוד 10 שניות</button>
+        <br>
+        <p id="power"></p>
+        <br>
+        <p id="object"></p>
+        <button onclick="CarType()">סוג הרכב</button>
+        <p id="time"></p>
+        <a href="apps.html" class="myButton">חזרה לאתר</a>
+    </div>
+    <script>
+
+        function resize() {
+            console.log("page was resize!");
+            reset();
+        }
+
+        // תזכורת שקופצת 10 שניות לאחר לחיצה על הכפתור
+        function reminder() {
+            alert("תזכורת לאחר 10 שניות")
+        }
+        // פונקציית זמן שמקבלת ומדפיסה את השעון
+        let noice = setInterval(timer, 1000);
+        function timer() {
+            let now = new Date();
+            let printTime = String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
+            document.getElementById("Clock").innerHTML = printTime;
+        }
+        var time = timer();
+        // הדפסה לקונסול זמן כניסה לאתר
+        function loading() {
+            alert("Page is Loading");
+            let now = new Date();
+            let printTime = now.getHours() + ":" + now.getMinutes();
+            console.log("page loaded at " + printTime);
+        }
+
+        // פונקצייה שמבקשת מספר מהמשתמש ומכניסה אל תוך מערך        
+        var arr1 = [];
+        function getNumber() {
+            let num = prompt("בחר מספר: ");
+            arr1.push(num);
+            document.getElementById("quest_5").innerHTML = arr1;
+            document.getElementById("5").innerHTML = "גודל המערך הוא: " + arr1.length;
+        }
+
+        // פונקציית שמוחקת את המספר האחרון במערך
+        function deleteNumFromArr() {
+            arr1.pop();
+            document.getElementById("quest_5").innerHTML = arr1;
+            document.getElementById("5").innerHTML = "גודל המערך הוא: " + arr1.length;
+        }
+
+        var arrayLength = arr1.length;
+        // מקבלת את גודל המערך ומדפיסה אותו        
+        document.getElementById("5").innerHTML = "גודל המערך הוא: " + arr1.length;
+
+
+        // מאפס את הפסקה 
+        let num = 0
+        document.getElementById("quest_4").innerHTML = num;
+        // בלחיצה על כפתור נבחור מספר אקראי
+        function randomNum() {
+            num = document.getElementById("quest_4").innerHTML = Math.floor(Math.random() * 20);
+        }
+        // המספר מתקדם ב1
+        function increase() {
+            num += 1;
+            document.getElementById("quest_4").innerHTML = num;
+        }
+        // המספר פוחת ב1
+        function decrease() {
+            num -= 1;
+            document.getElementById("quest_4").innerHTML = num;
+        }
+        // איפוס הפסקה
+        function reset() {
+            num = 0;
+            document.getElementById("quest_4").innerHTML = num;
+        }
+        // בדיקת זוגיות למספר
+        // הפונקציה מקבלת מספר ומבצעת חישוב מודולו ב2, במידה והתשובה המתקבל היא 0 סימו שהמספר זוגי אחרת הוא אי זוגי
+        function checkEven() {
+            if (num % 2 == 0) {
+                alert("המספר הוא זוגי!")
+            }
+            else alert("המספר לא זוגי")
+        }
+        // התראה על סדרת חזקות של המספר
+        function printPower() {
+            let powerNum = num;
+            let arr = [];
+            for (let i = 0; i < 3; i++) {
+                let sum = Math.pow(powerNum, 2);
+                arr[i] = sum;
+                powerNum = sum;
+            }
+            alert(arr.toString());
+            // הדפסה נוספת בתוספת 1 לקונסול
+            arr.forEach(element => {
+                console.log(element + 1);
+            });
+        }
+        // אובייקט מכונית עם מאפייניים ופונקצייה להדפסת הסוג והצבע
+        var Car = {
+            Type: "Ford",
+            Color: "Gray",
+            IDnumber: 4597610,
+            Print: function () {
+                return "this is a " + this.Type + "<br> in color " + this.Color;
+            }
+        }
+
+        document.getElementById("object").innerHTML = Car.Print();
+
+        // פונקציה שמחזירה לנו את סוג המכונית
+        function CarType() {
+            document.getElementById("object").innerHTML = "סוג הרכב הוא " + Car.Type;
+        }
+        addEventListener
+    </script>
+</body>
+
+</html>

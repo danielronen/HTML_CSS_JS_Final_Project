@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check coockies page</title>
+    <style>
+        *{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body onload="check_coockies()">
+
+    <p id="Clock"></p>
+    <p id="coockies"></p>
+    <p id="window"></p>
+    <p id="wide"></p>
+    <p id="myInfo"></p>
+    <button id="me">Who am I</button>
+    <button id="sayHi">Say hello</button>
+    <button onclick="stopCheck()">Stop checking</button>
+    <button onclick="stopWide()">Stop checking pixels</button>
+    <button><a href="apps.html">חזרה לאתר</a></button>
+    <script>
+
+        let daniel = {
+            firstName: "Daniel",
+            lastName: "Ronen",
+            age: "24",
+            city: "Ariel",
+            present: function () {
+                return "My name is " + this.firstName + " " + this.lastName + " and I'm " + this.age + " from " + this.city;
+            }
+        };
+
+        function printMe() {
+            document.getElementById("myInfo").innerHTML = daniel.present()
+
+        }
+
+        document.getElementById("me").addEventListener("click", printMe);
+
+        document.getElementById("sayHi").addEventListener("click", sayHello);
+
+        function sayHello() {
+            var hi = setTimeout(function () { alert("Hello"); }, 5000);
+        }
+
+        let noice = setInterval(timer, 1000);
+        function timer() {
+            let now = new Date();
+            let printTime = String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0") + ":" + String(now.getSeconds()).padStart(2, "0");
+            document.getElementById("Clock").innerHTML = printTime;
+        }
+
+        var myVar = setInterval(check_coockies, 5000);
+
+        function check_coockies() {
+            if (navigator.cookieEnabled) {
+                document.getElementById("coockies").innerHTML = "the website is working with coockies";
+                console.log("coockies cheaked !")
+            }
+            else
+                document.getElementById("coockies").innerHTML = "the website is not working with coockies !";
+        }
+
+        var myWindow = setInterval(windowSize, 1000);
+
+        function windowSize() {
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            document.getElementById("window").innerHTML = "Your window size is : " + width + " width and " + height + " height ";
+            console.log("check");
+        }
+        function isWiderThan900() {
+            var width = window.innerWidth;
+            if (width > 900) {
+                document.getElementById("wide").innerHTML = "The window is wider than 900 pixels"
+            }
+            else
+                document.getElementById("wide").innerHTML = "The window is NOT wider than 900 pixels"
+        }
+        var wider = setInterval(isWiderThan900, 10000)
+
+        function stopCheck() {
+            clearInterval(myWindow);
+        }
+
+        function stopWide() {
+            clearInterval(isWiderThan900);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הגרלה</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        h1 {
+            color: rgb(58, 175, 175);
+            font-size: 50px;
+            text-shadow: rgb(41, 44, 44) 4px 3px 5px;
+        }
+
+        p {
+            color: aquamarine;
+            font-size: 28px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: rgb(185, 185, 179);
+        }
+        
+.button2 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 28px;
+    border: 1px solid #00253d;
+    border-radius: 8px;
+    background: #0067aa;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0067aa), to(#00253d));
+    background: -moz-linear-gradient(top, #0067aa, #00253d);
+    background: linear-gradient(to bottom, #0067aa, #00253d);
+    -webkit-box-shadow: #007ccc 0px 0px 40px 0px;
+    -moz-box-shadow: #007ccc 0px 0px 40px 0px;
+    box-shadow: #007ccc 0px 0px 40px 0px;
+    text-shadow: #001522 1px 1px 1px;
+    font: normal normal bold 17px arial;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.button2:hover,
+.button2:focus {
+    border: 1px solid #002944;
+    background: #007ccc;
+    background: -webkit-gradient(linear, left top, left bottom, from(#007ccc), to(#002c49));
+    background: -moz-linear-gradient(top, #007ccc, #002c49);
+    background: linear-gradient(to bottom, #007ccc, #002c49);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.button2:active {
+    background: #00253d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00253d), to(#00253d));
+    background: -moz-linear-gradient(top, #00253d, #00253d);
+    background: linear-gradient(to bottom, #00253d, #00253d);
+}
+    </style>
+
+</head>
+
+<body>
+    <h1>הגרלה</h1>
+    <hr style="width: 17cm;">
+    <p id="hello"></p>
+    <p id="nameLength"></p>
+    <p id="randomNumbers"></p>
+    <p id="numSum"></p>
+    <p id="oddNum"></p>
+    <p id="equal"></p>
+    <p id="math"></p>
+    <p id="paragraph"></p>
+
+    <a href="apps.html" class="button2">חזרה לאתר</a>
+    <script>
+        let name = prompt("מה שמך?");
+        document.getElementById("hello").innerHTML = "שלום " + name;
+        document.getElementById("nameLength").innerHTML = "אורך השם שלך הוא: <b>" + name.length + "</b> תווים";
+
+        let num1 = name.length;
+        let num2 = Math.floor(Math.random() * 10);
+        let sum = num1 + num2;
+        console.log("סכום המספרים הוא: "+sum);
+        document.getElementById("randomNumbers").innerHTML = "המספר שלך הוא: <b>" + num1 + "</b>, והמספר שהוגרל הוא: <b>" + num2 + "</b>";
+        document.getElementById("numSum").innerHTML = "סכום המספרים האקראיים הוא: <b>" + sum + "</b>";
+
+        if (sum % 2 == 0) {
+            document.getElementById("oddNum").innerHTML = "<b>סכום המספרים הוא זוגי</b>"
+            document.getElementById("oddNum").style.color = "green";
+            document.getElementById("oddNum").style.fontSize = "36px";
+        }
+
+        else {
+            document.getElementById("oddNum").innerHTML = "סכום המספרים הוא אי זוגי"
+            document.getElementById("oddNum").style.color = "red";
+            document.getElementById("oddNum").style.fontSize = "36px";
+        }
+
+        if (num1 == num2) {
+            document.getElementById("equal").innerHTML = "שני המספרים הרנדומליים שווים !"
+        }
+        else document.getElementById("equal").innerHTML = "שני המספרים הרנדומליים לא שווים !"
+
+        alert(document.getElementById("math").innerHTML = "מכפלת שני המספרים היא: " + num1 * num2);
+    </script>
+
+</body>
+
+</html>

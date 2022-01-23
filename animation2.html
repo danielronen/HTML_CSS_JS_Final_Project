@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>super mario animation</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onclick="jump()">
+    <div id="main">
+        <a class="button2" href="apps.html">Back to main</a>
+        <div id="myScore" style="display: none">Score: </div>
+        <div id="myLevel" style="display: none">Level: </div>
+        <div class="mute" onclick="muteAudio()"></div>
+        <div id="GameContainer" style="display:none">           
+            <h1>Super Mario !</h1>
+            <img id="coin" src="./animation/coin.png" alt="coin">
+            <img id="coin2" src="./animation/coin.png" alt="coin">
+            <img id="coin3" src="./animation/coin.png" alt="coin">
+            <img id="mario" src="./animation/mario.gif" alt="mario">
+            <img id="block1" src="./animation/block.png" alt="block">
+        </div>
+    </div>
+
+    <button id="playButton" class="playButton" onclick="playGame()">להפעלת המשחק </button>
+    <audio id="audio">
+        <source src="./animation/theme_song.mp3" type="audio/mpeg" volume="5%">
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
