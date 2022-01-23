@@ -1,0 +1,54 @@
+#demo {
+    display: inline-block;
+    width: 30px;
+    font-size: 20px;
+    color: blue;
+}
+
+body {
+    text-align: center;
+    background-color: rgb(207, 199, 189);
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: cadetblue;
+    text-shadow: cornflowerblue 1px 1px 4px ;
+    border-style: initial;
+}
+
+.myButton {
+    box-shadow: -2px 7px 27px -7px #276873;
+    background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color: #599bb3;
+    border-radius: 42px;
+    border: 1px solid #29668f;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #3d768a;
+    -webkit-box-shadow: #59a1ff 0px 0px 40px 0px;
+    -moz-box-shadow: #59a1ff 0px 0px 40px 0px;
+    box-shadow: #59a1ff 0px 0px 40px 0px;
+    width: 88px;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    background-color: #408c99;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}

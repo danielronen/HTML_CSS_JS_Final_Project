@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#logo {
+    position: absolute;
+    left: 1050px;
+    top: 100px;
+    font-family: 'Arial Narrow Bold', sans-serif, Impact,Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: rgb(162, 162, 216);
+    text-shadow: 1px 3px 3px rgb(76, 80, 76);
+    font-size: 40px;
+}
+
+#game {
+    width: 1368px;
+    height: 675px;
+    border: 1px solid black;
+    margin: auto;
+    overflow: hidden;
+    background-color: cornflowerblue;
+    background-image: url("background.png");
+    background-position: bottom;
+}
+
+#block {
+    width: 50px;
+    height: 675px;
+    background: linear-gradient(to left, #18d806 30%, #127709 70%);
+    position: relative;
+    left: 1368px;
+    animation: block 4s infinite linear;
+    mix-blend-mode: hard-light;
+
+}  
+
+@keyframes block{
+    0%{left:1368px}
+    100%{left:-50px}
+}
+
+#hole {
+    width: 50px;
+    height: 150px;
+    background-color: rgb(113, 193, 204);
+    position: relative;
+    background-color: gray;
+}
+
+h4 {
+    position: absolute;
+    left: 43%;
+    top: 0px;
+}
+
+#character{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    clip-path: circle(60px, center);
+}
+
+#score {
+    background-color: turquoise;
+}
+
+#level{
+    position: absolute;
+    left: 1300px;
+    top: 0;
+}
+.button2 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 28px;
+    border: 1px solid #00253d;
+    border-radius: 8px;
+    background: #0067aa;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0067aa), to(#00253d));
+    background: -moz-linear-gradient(top, #0067aa, #00253d);
+    background: linear-gradient(to bottom, #0067aa, #00253d);
+    -webkit-box-shadow: #007ccc 0px 0px 40px 0px;
+    -moz-box-shadow: #007ccc 0px 0px 40px 0px;
+    box-shadow: #007ccc 0px 0px 40px 0px;
+    text-shadow: #001522 1px 1px 1px;
+    font: normal normal bold 17px arial;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.button2:hover,
+.button2:focus {
+    border: 1px solid #002944;
+    background: #007ccc;
+    background: -webkit-gradient(linear, left top, left bottom, from(#007ccc), to(#002c49));
+    background: -moz-linear-gradient(top, #007ccc, #002c49);
+    background: linear-gradient(to bottom, #007ccc, #002c49);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.button2:active {
+    background: #00253d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00253d), to(#00253d));
+    background: -moz-linear-gradient(top, #00253d, #00253d);
+    background: linear-gradient(to bottom, #00253d, #00253d);
+}
